@@ -35,6 +35,20 @@ class JobRepository extends EntityRepository {
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+    public function getPaginatedActiveJobsByCategoryQuery(int $categoryId = null) {        
+        $qb = $this->createQueryBuilder('j')
+            ->where('j.expiresAt > :date')
+            ->setParameter('date', new \DateTime())
+            ->orderBy('j.expiresAt', 'DESC');
+
+        if ($categoryId) {
+            $qb->andWhere('j.category = :categoryId')
+                ->setParameter('categoryId', $categoryId);
+        }
+
+        return $qb->getQuery();
+    }
 }
 
 ?>

@@ -2,6 +2,7 @@
 namespace App\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use App\Entity\Job;
 
 class CategoryRepository extends EntityRepository {
 

@@ -44,6 +44,8 @@ Jobs in the {{category.name}} category
 
 {% block body %}
         <h4>{{category.name}}</h4>
-
-        {% include 'job/table.html.twig' with {'jobs': category.activeJobs} only %}
+        {% include 'job/table.html.twig' with {'jobs': pagination} only %}
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
 {% endblock %}

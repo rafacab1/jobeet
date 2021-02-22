@@ -31,7 +31,7 @@ class JobController extends AbstractController {
     }
 
     /**
-     * Fins and displays a job entity.
+     * Finds and displays a job entity.
      * 
      * @Route("/job/{id}", name="job.show")
      * @Entity("job", expr="repository.findActiveJob(id)")
